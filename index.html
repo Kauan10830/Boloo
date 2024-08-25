@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pergunta sobre bolo</title>
+    <style>
+        .button-disabled {
+            pointer-events: none;
+            color: grey;
+            position: relative;
+            display: inline-block;
+        }
+
+        .blink {
+            animation: blink 0.5s infinite;
+        }
+
+        @keyframes blink {
+            0% { opacity: 1; }
+            10% { opacity: 0; }
+            20% { opacity: 1; }
+            30% { opacity: 0; }
+            40% { opacity: 1; }
+            50% { opacity: 0; }
+            60% { opacity: 1; }
+            70% { opacity: 0; }
+            80% { opacity: 1; }
+            90% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <h1>Você aceita um bolo?</h1>
+    <button id="yesButton">Sim</button>
+    <button id="noButton" class="button-disabled">Não</button>
+
+    <script>
+        const noButton = document.getElementById('noButton');
+
+        noButton.addEventListener('click', function() {
+            noButton.classList.add('blink');
+            setTimeout(() => {
+                noButton.classList.remove('blink');
+            }, 500); // Remove a animação após 0.5 segundos
+        });
+
+        document.getElementById('yesButton').addEventListener('click', function() {
+            alert('Você aceitou o bolo!');
+        });
+    </script>
+</body>
+</html>
